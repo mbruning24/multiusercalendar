@@ -1,0 +1,55 @@
+<div class='fix-header'>
+
+<div class='datepicker container-fluid collapsed'>
+	<div class='datepicker-header'>
+		<h3 class='header-text'><span ng-click='backOneMonth()' class='pull-left glyphicon glyphicon-chevron-left'></span>{{ pickerHeader() }}<span ng-click='forwardOneMonth()' class='pull-right glyphicon glyphicon-chevron-right'></span></h3>
+	</div>
+	<div class='datepicker-body'>
+		<ul class='days-list'>
+			<li ng-repeat='day in pickerDays' style='margin-right:3px;'><strong>{{ day.dayName }}</strong></li>
+		</ul>
+		<ul class='date-list'>
+			<li ng-repeat='day in dates' class="isSelDate-{{ day.isSelDate }} {{ day.dateClass }}" style='margin-right:3px;' ng-click='loadNewDate(day.date)'>{{ day.dayNumber }}</li>
+		</ul>
+	</div>
+</div>
+
+<div class='container-fluid calendar-header'>
+	<h3 class='header-text'>
+		<span ng-click='togglePicker()' class='cal-toggle pull-left glyphicon glyphicon-calendar' id='picker-toggle'></span>
+		<a style='color:black;' href='#/add-appt'><span class='pull-right glyphicon glyphicon-plus'></span></a>
+		<span style='font-size:14px; display:block;'>{{ calendarHeader.dayStr }}</span>
+		<span style='font-size:16px'>{{ calendarHeader.dateStr }}</span>
+	</h3>
+</div>
+
+</div>
+
+<!-- This is the div where the appointments will be shown. -->
+
+<div class='container-fluid calendar-appts'>
+	<div class='appts-wrapper'>
+		<ul class='appts-list'>
+			
+			<li class='appt baby-blue' ng-repeat='appt in appts | orderByPriority | orderBy:"startDateTime" | filter:filterByUser'>
+				<a href='#/view-appt/{{ appt.$id }}'><table>
+				<tr>
+					<td rowspan=2 class='appt-start'>{{ convertTime(appt.startDateTime) }}</td>
+					<td class='appt-subj'>{{ appt.subject }}</td>
+				</tr>
+				<tr>
+					<td class='appt-user'>{{ appt.username }}</td>
+				</tr>
+				</table></a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class='container-fluid calendar-footer'>
+	<h3 class='header-text'>
+		<a href='#/users'><span class='pull-left glyphicon glyphicon-user'></span></a>
+		<a href='#/settings'><span class='pull-right glyphicon glyphicon-cog'></span></a>
+		<span ng-click='goToToday()' style='font-size:18px;'>Today</span>
+	</h3>
+</div>

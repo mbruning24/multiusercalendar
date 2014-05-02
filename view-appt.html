@@ -1,0 +1,19 @@
+<div class='container-fluid' style='margin-bottom:20px;'>
+	<h3 class='header-text'>
+		<a href='#/'><span class='pull-left glyphicon glyphicon-chevron-left'></span></a>
+		Details
+		<a href='#/edit-appt/{{ appt.$id }}'><span class='pull-right glyphicon glyphicon-pencil'></span></a>
+	</h3>
+	<div class='appt-info' style='margin-top:20px;'>
+		<h4>{{ appt.subject }}</h4>
+		<p style='font-weight:200'>{{ appt.location }}</p>
+		<p style='color:#888;'>from {{ showDateTime(appt.startDateTime) }}</p>
+		<p style='color:#888;'>to {{ showDateTime(appt.endDateTime) }}</p>
+		<hr />
+		<h4>Assigned To</h4>
+		<p>{{ appt.username }}</p>
+		<hr />
+		<h4>Notes</h4>
+		<p>{{ appt.notes }}</p>
+	</div>
+</div>

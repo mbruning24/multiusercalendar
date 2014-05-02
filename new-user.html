@@ -1,0 +1,29 @@
+<div class='container-fluid' style='margin-bottom:20px;'>
+	<h3 class='header-text'><a href='#/users'><span class='pull-left glyphicon glyphicon-remove'></span></a>Add User<span ng-click='addUser()' class='pull-right glyphicon glyphicon-ok'></span></h3>
+	<form>
+		<div class='form-group'>
+			<label for='first_name'>First Name</label>
+			<input class='form-control' type='text' id='first_name' ng-model='firstName' />
+		</div>
+		<div class='form-group'>
+			<label for='last_name'>Last Name</label>
+			<input class='form-control' type='text' id='last_name' ng-model='lastName' />
+		</div>
+		<div class='form-group'>
+			<label for='user_email'>Email Address</label>
+			<input class='form-control' type='email' id='user_email' ng-model='userEmail' />
+		</div>
+		<div class='form-group'>
+			<label for='user_email_conf'>Confirm Email</label>
+			<input class='form-control' type='email' id='user_email_conf' ng-model='userEmailConf' />
+		</div>
+		<div class='form-group'>
+			<label for='user_pwd'>Password</label>
+			<input class='form-control' type='password' id='user_pwd' ng-model='userPwd' />
+		</div>
+		<div class='form-group'>
+			<label for='user_pwd_conf'>Confirm Password</label>
+			<input class='form-control' type='password' id='user_pwd_conf' ng-model='userPwdConf' />
+		</div>
+	</form>
+</div>

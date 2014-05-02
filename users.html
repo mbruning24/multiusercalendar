@@ -1,0 +1,18 @@
+<div class='container-fluid' style='margin-bottom:20px;'>
+	<h3 class='header-text'><a href='#/'><span class='pull-left glyphicon glyphicon-chevron-left'></span></a>Users<a href='#/new-user'><span class='pull-right glyphicon glyphicon-plus'></span></a></h3>
+	<ul style='margin-top:40px;' class='users-list'>
+		<li><button class='btn btn-default pull-left' style='margin-bottom:20px;' ng-click='showOnlyMe()'>Show Only Me</button><button class='btn btn-default pull-right' ng-click='showAll()'>Show All</button></li>
+		<li ng-repeat='user in users | orderByPriority | orderBy:"id"' class='user-list-item'>
+			<div class="onoffswitch pull-right">
+				<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch{{ user.$id }}" ng-change='updateActivesAndPush()' ng-model='actives[user.$id]' />
+				<label class="onoffswitch-label" for="myonoffswitch{{ user.$id }}">
+					<div class="onoffswitch-inner"></div>
+					<!--<div class="onoffswitch-switch"></div>-->
+				</label>
+			</div>
+			<div class='user-name'>
+				{{ user.firstName }} {{ user.lastName }} <span ng-show='{{ user.$id == cuID }}'><span class='glyphicon glyphicon-star' style='color:yellow; text-shadow: black 1px 1px 0px'></span><small>Me</small></span>
+			</div>
+		</li>	
+	</ul>
+</div>
